@@ -2,6 +2,7 @@ package org.example.Characters;
 
 public class Hero extends Character{
     int level = 1;
+    int exp = 0;
 
     public Hero(String name) {
         super(name);
