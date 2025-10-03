@@ -15,11 +15,10 @@ public class Hero extends Character{
     @Override
     public void takeDamage(int damage) {
         currentHP -= damage;
-        if(isAlive()){
-            System.out.println(name + " took " + damage + "damage! Remaining health is: " + currentHP + "/" + maxHP + "HP.");
-        } else {
+        if(!isAlive()){
             currentHP = 0;
         }
+        System.out.println(name + " took " + damage + "damage! Remaining health is: " + currentHP + "/" + maxHP + "HP.");
         helper.sleepForMilliSeconds(500);
     }
 
@@ -29,5 +28,12 @@ public class Hero extends Character{
 
     public void levelUp(){
         System.out.println("You leveled up to level " + level + "!");
+    }
+
+    public void gainedExp(int givenExp){
+        exp += givenExp;
+        if(exp >= 100){
+            level++;
+        }
     }
 }
