@@ -16,10 +16,10 @@ abstract class Character {
         this.currentHP = 100;
     }
 
-    protected boolean isAlive(){
+    public boolean isAlive(){
         return currentHP > 0;
     }
 
-    abstract void takeDamage();
+    abstract void takeDamage(int damage);
 
 }
