@@ -1,7 +1,7 @@
 package org.example.Game;
 
-import org.example.Characters.Hero;
-import org.example.Characters.Spider;
+import org.example.Character.Hero;
+import org.example.Character.Monster.Spider;
 import org.example.Helpers.Helper;
 
 public class Game {

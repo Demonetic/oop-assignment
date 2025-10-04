@@ -1,9 +1,7 @@
 package org.example;
 
-import org.example.Characters.Hero;
+import org.example.Character.Hero;
 import org.example.Game.Game;
-import org.example.Helpers.Helper;
-import org.example.Helpers.Helpers;
 
 public class Main {
     public static void main(String[] args) {

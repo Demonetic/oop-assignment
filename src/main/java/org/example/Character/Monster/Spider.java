@@ -1,4 +1,4 @@
-package org.example.Characters;
+package org.example.Character.Monster;
 
 public class Spider extends Monster {
     public Spider(String name) {
@@ -7,7 +7,7 @@ public class Spider extends Monster {
 
     @Override
     int givenExp() {
-        return 50; //return 100 for Boss-class
+        return 50;
     }
 
     @Override
