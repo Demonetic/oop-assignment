@@ -12,10 +12,10 @@ public class Spider extends Monster {
 
     @Override
     public void takeDamage(int damage) {
-        currentHP -= damage;
+        setCurrentHP(getCurrentHP() - damage);
         if(!isAlive()){
-            currentHP = 0;
+            setCurrentHP(0);
         }
-        System.out.println(name + " took " + damage + "damage! Remaining health is: " + currentHP + "/" + maxHP + "HP.");
+        System.out.println(getName() + " took " + damage + "damage! Remaining health is: " + getCurrentHP() + "/" + getMaxHP() + "HP.");
     }
 }
