@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.Character.Hero;
 import org.example.Game.Game;
+import org.example.Game.GameMenu;
 import org.example.Helpers.InputReader;
 
 public class Main {
@@ -12,6 +13,9 @@ public class Main {
         int number = reader.readInt("Enter a number: ");
         System.out.println("Number: " + number);
         reader.close();
+
+        GameMenu game = new GameMenu();
+        game.start();
 //        hero.levelUp();
 //        hero.status();
 //        hero.takeDamage(5);
