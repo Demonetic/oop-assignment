@@ -28,9 +28,9 @@ public class Boss extends Monster {
             character.setCurrentHP(0);
         }
         if(isDoubleDamage){
-            System.out.println(getName() + "dealt Critical Damage! " + character.getName() + " took " + damage + " damage.");
+            System.out.println(getName() + " dealt Critical Damage! " + character.getName() + " took " + damage + " damage.");
         } else {
-            System.out.println(getName() + "dealt " + damage + " damage to" + character.getName() + "!");
+            System.out.println(getName() + " dealt " + damage + " damage to " + character.getName() + "!");
         }
 //        helper.sleepForMilliSeconds(500);
     }

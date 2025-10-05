@@ -4,23 +4,58 @@ import org.example.Character.Hero;
 import org.example.Character.Monster.Boss;
 import org.example.Character.Monster.Monster;
 import org.example.Character.Monster.Spider;
+import org.example.Character.Weapon;
 import org.example.Helpers.Helper;
+import org.example.Helpers.InputReader;
 
 public class Game {
     int turn = 1;
     int maxTurns = 100;
     Helper helper = new Helper();
-    Hero hero = new Hero("Lotus");
+    private Hero hero;
+    InputReader input = new InputReader();
 
-    public static void forest() {
-        Spider forestSpider = new Spider("Forest Spider");
-        Boss forestBoss = new Boss("Tree Golem");
+    private void decideEncounter(String safeZone, Spider spider, Boss boss) {
+        int percentage = helper.randomPercentage();
+        if (percentage <= 10) {
+            System.out.println(safeZone);
+        } else //(percentage <= 30)
+        {
+            while (hero.isAlive() && spider.isAlive()) {
+                System.out.println("Turn " + turn);
+                hero.attack(spider);
+                spider.attack(hero);
+                hero.status();
+                spider.status();
+                turn++;
 
-        System.out.println("You stumbled upon an empty cabin. After some rest you walk back to your farm");
-        System.out.println("You have entered the forest.");
+                if(turn > maxTurns){
+                    break;
+                }
+                //  helper.sleepForMilliSeconds(500);
+            }
+            if(!hero.isAlive() && !spider.isAlive()){
+                System.out.println("You both died. Game over.");
+            } else if(!hero.isAlive()){
+                System.out.println("The " + spider.getName() + " killed you. Game over.");
+            } else if(!spider.isAlive()){
+                System.out.println("You killed the " + spider.getName() + "!. You earned " + spider.givenExp() + " EXP.");
+                hero.gainedExp(spider.givenExp());
+            } else{
+                System.out.println("Something went wrong.");
+            }
+            // } else {
+            //Return choice 3
+        }
     }
 
-    public static void desert() {
+    public void forest() {
+        Spider forestSpider = new Spider("Forest Spider");
+        Boss forestBoss = new Boss("Tree Golem");
+        decideEncounter("You stumbled upon an empty cabin. After some rest you walk back to your farm", forestSpider, forestBoss);
+    }
+
+    public void desert() {
         Spider desertSpider = new Spider("Sand Spider");
         Boss desertBoss = new Boss("Sand Golem");
 
@@ -28,7 +63,7 @@ public class Game {
         System.out.println("You have entered the desert.");
     }
 
-    public static void cave() {
+    public void cave() {
         Spider caveSpider = new Spider("Cave Spider");
         Boss caveBoss = new Boss("Stone Golem");
 
@@ -36,19 +71,11 @@ public class Game {
         System.out.println("You have entered the cave.");
     }
 
-    private void decideEncounter(String safeZone, Spider spider, Boss boss){
-        int percentage = helper.randomPercentage();
-        if(percentage <= 10){
-            System.out.println(safeZone);
-        } else if(percentage <= 30){
-             while(spider.isAlive() && hero.isAlive()){
-                 System.out.println("Turn " + turn);
-             }
-        } else{
-            //Return choice 3
-        }
-
-
+    public void addName(){
+        String heroName = input.readString("Enter your preferred Hero name");
+        hero = new Hero(heroName);
+        String weaponName = input.readString("Enter your preferred Weapon name");
+        hero.equipWeapon(new Weapon(weaponName));
     }
 
 //    public void start(){

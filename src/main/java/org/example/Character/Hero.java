@@ -1,6 +1,5 @@
 package org.example.Character;
 
-import org.example.Character.Monster.Monster;
 import org.example.Helpers.Helper;
 
 public class Hero extends Character{
@@ -16,12 +15,12 @@ public class Hero extends Character{
 
     @Override
     public void attack(Character character) {
-        int damage = weapon.getAttack();
+        int damage = weapon.getTotalAttack();
         character.setCurrentHP(character.getCurrentHP() - damage);
         if(!character.isAlive()){
             character.setCurrentHP(0);
         }
-        System.out.println(getName() + "dealt " + damage + " damage to" + character.getName() + "!");
+        System.out.println(getName() + " dealt " + damage + " damage to " + character.getName() + "!");
 //        helper.sleepForMilliSeconds(500);
     }
 
@@ -31,7 +30,9 @@ public class Hero extends Character{
         setMaxHP();
         setCurrentHP(getMaxHP());
         System.out.println("You ranked up to level " + level +
-                " and gained 20 extra HP! Your HP was refilled to " + getCurrentHP());
+                " and gained 20 extra HP! Your HP was refilled to " + getCurrentHP() + ".");
+        System.out.println("Your weapon has gained 10 extra base damage. Your base damage is now "
+                + weapon.getAttack() + ".");
     }
 
     public void gainedExp(int givenExp){

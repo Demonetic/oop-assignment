@@ -11,7 +11,7 @@ public class Spider extends Monster {
     Helper helper = new Helper();
 
     @Override
-    int givenExp() {
+    public int givenExp() {
         return 50;
     }
 
@@ -22,7 +22,7 @@ public class Spider extends Monster {
         if (!character.isAlive()) {
             character.setCurrentHP(0);
         }
-        System.out.println(getName() + "dealt " + damage + " damage to" + character.getName() + "!");
+        System.out.println(getName() + " dealt " + damage + " damage to " + character.getName() + "!");
 //        helper.sleepForMilliSeconds(500);
     }
 }

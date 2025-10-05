@@ -16,6 +16,10 @@ public class Weapon {
     }
 
     public int getAttack(){
+        return attack;
+    }
+
+    public int getTotalAttack(){
         return attack + helper.randomAttack();
     }
 
