@@ -12,6 +12,10 @@ public class Boss extends Monster {
 
     @Override
     protected void takeDamage(int damage) {
-
+        setCurrentHP(getCurrentHP() - damage);
+        if(!isAlive()){
+            setCurrentHP(0);
+        }
+        System.out.println(getName() + " took " + damage + "damage! Remaining health is: " + getCurrentHP() + "/" + getMaxHP() + "HP.");
     }
 }

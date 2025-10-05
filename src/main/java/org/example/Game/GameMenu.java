@@ -40,13 +40,13 @@ public class GameMenu {
 
         switch(choice){
             case 1:
-                forest();
+                Game.forest();
                 break;
             case 2:
-                desert();
+                Game.desert();
                 break;
             case 3:
-                cave();
+                Game.cave();
                 break;
             case 0:
                 gameIsRunning = false;
@@ -58,19 +58,19 @@ public class GameMenu {
     }
 
     //lägg till i Game-klassen
-    private void forest() {
-        System.out.println("You have entered the forest.");
-    }
-
-    //lägg till i Game-klassen
-    private void desert() {
-        System.out.println("You have entered the desert.");
-    }
-
-    //lägg till i Game-klassen
-    private void cave() {
-        System.out.println("You have entered the cave.");
-    }
+//    private void forest() {
+//        System.out.println("You have entered the forest.");
+//    }
+//
+//    //lägg till i Game-klassen
+//    private void desert() {
+//        System.out.println("You have entered the desert.");
+//    }
+//
+//    //lägg till i Game-klassen
+//    private void cave() {
+//        System.out.println("You have entered the cave.");
+//    }
 
     
 }

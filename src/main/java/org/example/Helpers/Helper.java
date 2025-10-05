@@ -5,6 +5,7 @@ public class Helper implements Helpers {
     public int randomInt() {
         return (int) Math.round(Math.random() * 20);
     }
+    public int randomPercentage(){ return (int) Math.round(Math.random() * 99) + 1;}
 
     @Override
     public void sleepForMilliSeconds(int time) {
