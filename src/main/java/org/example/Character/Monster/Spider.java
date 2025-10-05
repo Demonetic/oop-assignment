@@ -1,9 +1,14 @@
 package org.example.Character.Monster;
 
+import org.example.Character.Character;
+import org.example.Helpers.Helper;
+
 public class Spider extends Monster {
     public Spider(String name) {
         super(name);
     }
+
+    Helper helper = new Helper();
 
     @Override
     int givenExp() {
@@ -11,11 +16,13 @@ public class Spider extends Monster {
     }
 
     @Override
-    public void takeDamage(int damage) {
-        setCurrentHP(getCurrentHP() - damage);
-        if(!isAlive()){
-            setCurrentHP(0);
+    public void attack(Character character) {
+        int damage = helper.randomAttack();
+        character.setCurrentHP(character.getCurrentHP() - damage);
+        if (!character.isAlive()) {
+            character.setCurrentHP(0);
         }
-        System.out.println(getName() + " took " + damage + "damage! Remaining health is: " + getCurrentHP() + "/" + getMaxHP() + "HP.");
+        System.out.println(getName() + "dealt " + damage + " damage to" + character.getName() + "!");
+//        helper.sleepForMilliSeconds(500);
     }
 }

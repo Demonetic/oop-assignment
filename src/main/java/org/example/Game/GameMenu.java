@@ -30,7 +30,7 @@ public class GameMenu {
         System.out.println("\n--- Game Menu ---");
         System.out.println("1. Explore the Forest");
         System.out.println("2. Explore the Desert");
-        System.out.println("3. Enter the Cave");
+        System.out.println("3. Explore the Cave");
         System.out.println("0. Quit Game");
         System.out.println("-----------------");
     }
@@ -56,21 +56,6 @@ public class GameMenu {
         }
 
     }
-
-    //lägg till i Game-klassen
-//    private void forest() {
-//        System.out.println("You have entered the forest.");
-//    }
-//
-//    //lägg till i Game-klassen
-//    private void desert() {
-//        System.out.println("You have entered the desert.");
-//    }
-//
-//    //lägg till i Game-klassen
-//    private void cave() {
-//        System.out.println("You have entered the cave.");
-//    }
 
     
 }

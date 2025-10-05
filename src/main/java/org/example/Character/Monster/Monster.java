@@ -6,5 +6,4 @@ public abstract class Monster extends org.example.Character.Character {
     }
 
     abstract int givenExp();
-
 }

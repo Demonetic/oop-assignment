@@ -1,10 +1,12 @@
 package org.example.Character;
 
+import org.example.Character.Monster.Monster;
 import org.example.Helpers.Helper;
 
 public class Hero extends Character{
     private int level = 1;
     private int exp = 0;
+    private Weapon weapon;
 
     Helper helper = new Helper();
 
@@ -13,28 +15,33 @@ public class Hero extends Character{
     }
 
     @Override
-    public void takeDamage(int damage) {
-        setCurrentHP(getCurrentHP() - damage);
-        if(!isAlive()){
-            setCurrentHP(0);
+    public void attack(Character character) {
+        int damage = weapon.getAttack();
+        character.setCurrentHP(character.getCurrentHP() - damage);
+        if(!character.isAlive()){
+            character.setCurrentHP(0);
         }
-        System.out.println(getName() + " took " + damage + "damage! Remaining health is: "
-                + getCurrentHP() + "/" + getMaxHP() + "HP.");
-        helper.sleepForMilliSeconds(500);
-    }
-
-    public void status(){
-        System.out.println(getName() + " has " + getCurrentHP() + " HP left and is level " + level + "!");
+        System.out.println(getName() + "dealt " + damage + " damage to" + character.getName() + "!");
+//        helper.sleepForMilliSeconds(500);
     }
 
     public void levelUp(){
-        System.out.println("You leveled up to level " + level + " and now have " + getMaxHP() + " HP!");
+        level++;
+        exp -= 100;
+        setMaxHP();
+        setCurrentHP(getMaxHP());
+        System.out.println("You ranked up to level " + level +
+                " and gained 20 extra HP! Your HP was refilled to " + getCurrentHP());
     }
 
     public void gainedExp(int givenExp){
         exp += givenExp;
         if(exp >= 100){
-            level++;
+            levelUp();
         }
+    }
+
+    public void equipWeapon(Weapon weapon){
+        this.weapon = weapon;
     }
 }

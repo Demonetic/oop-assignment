@@ -2,7 +2,7 @@ package org.example.Helpers;
 
 public class Helper implements Helpers {
     @Override
-    public int randomInt() {
+    public int randomAttack() {
         return (int) Math.round(Math.random() * 20);
     }
     public int randomPercentage(){ return (int) Math.round(Math.random() * 99) + 1;}

@@ -16,7 +16,7 @@ public class Weapon {
     }
 
     public int getAttack(){
-        return attack + helper.randomInt();
+        return attack + helper.randomAttack();
     }
 
     public void weaponUpgrade(){

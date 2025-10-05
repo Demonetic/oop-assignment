@@ -35,5 +35,10 @@ public abstract class Character {
         return currentHP > 0;
     }
 
-    protected abstract void takeDamage(int damage);
+    protected abstract void attack(Character character);
+
+    public void status(){
+        System.out.println(getName() + " has " + getCurrentHP() + "/" + getMaxHP() + " HP left!");
+    }
 }
+
