@@ -17,7 +17,7 @@ public class Spider extends Monster {
 
     @Override
     public void attack(Character character) {
-        int damage = helper.randomAttack();
+        int damage = helper.randomAttackMonster();
         character.setCurrentHP(character.getCurrentHP() - damage);
         if (!character.isAlive()) {
             character.setCurrentHP(0);

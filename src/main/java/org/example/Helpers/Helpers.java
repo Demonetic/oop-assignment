@@ -1,6 +1,6 @@
 package org.example.Helpers;
 
 public interface Helpers {
-    int randomAttack();
+    int randomAttackMonster();
     void sleepForMilliSeconds(int time);
 }

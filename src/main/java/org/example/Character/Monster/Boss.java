@@ -10,15 +10,15 @@ public class Boss extends Monster {
     Helper helper = new Helper();
 
     @Override
-    int givenExp() {
+    public int givenExp() {
         return 70;
     }
 
     @Override
     public void attack(Character character) {
-        int damage = helper.randomAttack();
+        int damage = helper.randomAttackMonster();
         boolean isDoubleDamage = false;
-        if(helper.randomPercentage() <= 30) {
+        if(helper.randomPercentage() <=30) {
             damage *= 2;
             isDoubleDamage = true;
         }

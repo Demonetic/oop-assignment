@@ -20,7 +20,7 @@ public class Weapon {
     }
 
     public int getTotalAttack(){
-        return attack + helper.randomAttack();
+        return attack + helper.randomAttackHero();
     }
 
     public void weaponUpgrade(){

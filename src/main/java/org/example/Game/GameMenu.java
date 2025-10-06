@@ -14,23 +14,29 @@ public class GameMenu {
         this.gameIsRunning = true;
     }
 
-    public void start(){
+    public void start() {
         System.out.println(">>> Welcome to Sunfield Village <<<");
         game.addName();
-        while(gameIsRunning){
+        Hero hero = game.getHero();
+        while (gameIsRunning && hero.isAlive() && hero.getLevel() < 10) {
             displayMenu();
             int choice = input.readInt("Enter a menu-option");
             handleChoice(choice);
-            if(choice == 0){
+            if (choice == 0) {
                 gameIsRunning = false;
             }
-
         }
         input.close();
-        System.out.println("You have quit the game.\nGame over.");
+        if (!gameIsRunning) {
+            System.out.println("You have quit your adventure.");
+        } else if(!hero.isAlive()){
+            System.out.println("Game over.");
+        } else {
+            System.out.println("Congratulations! You reached level 10 and have won the game!");
+        }
     }
 
-    private void displayMenu(){
+    private void displayMenu() {
         System.out.println("\n--- Game Menu ---");
         System.out.println("1. Print Character Status");
         System.out.println("2. Explore the Forest");
@@ -40,13 +46,13 @@ public class GameMenu {
         System.out.println("-----------------");
     }
 
-    private void handleChoice(int choice){
+    private void handleChoice(int choice) {
         System.out.println(); // Improve visibility after menu choice
 
-        switch(choice){
+        switch (choice) {
             case 1:
+                game.printInfo();
                 break;
-              //  Hero.status(); //Lägg till status med EXP + HP samt vapen basdamage + vapennamn
             case 2:
                 game.forest();
                 break;
@@ -63,9 +69,6 @@ public class GameMenu {
                 System.out.println("Invalid input. Enter a menu choice.");
         }
 
-        // Lägg till status metod som kollar hur mycket EXP och HP Heron har
-
     }
 
-    
 }

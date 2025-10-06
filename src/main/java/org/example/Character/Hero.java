@@ -24,11 +24,16 @@ public class Hero extends Character{
 //        helper.sleepForMilliSeconds(500);
     }
 
+    public int getLevel(){
+        return level;
+    }
+
     public void levelUp(){
         level++;
         exp -= 100;
         setMaxHP();
         setCurrentHP(getMaxHP());
+        weapon.weaponUpgrade();
         System.out.println("You ranked up to level " + level +
                 " and gained 20 extra HP! Your HP was refilled to " + getCurrentHP() + ".");
         System.out.println("Your weapon has gained 10 extra base damage. Your base damage is now "
@@ -42,7 +47,15 @@ public class Hero extends Character{
         }
     }
 
+    public int getExp(){
+        return ((getLevel() -1) * 100) + exp;
+    }
+
     public void equipWeapon(Weapon weapon){
         this.weapon = weapon;
+    }
+
+    public Weapon getWeapon(){
+        return weapon;
     }
 }
