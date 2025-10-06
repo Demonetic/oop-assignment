@@ -27,11 +27,12 @@ public class Game {
         } else if (percentage <= 30) { // Gives 20% chance of encountering a safe zone
             System.out.println(safeZone);
             if (hero.getCurrentHP() + 20 > hero.getMaxHP()) {
+                hero.setCurrentHP(hero.getMaxHP());
                 System.out.println("You have refilled your HP. You now have " + hero.getCurrentHP() + "HP.");
             } else {
+                hero.setCurrentHP(hero.getCurrentHP() + 20);
                 System.out.println("You have regained 20HP. You now have " + hero.getCurrentHP() + "HP.");
             }
-            hero.setCurrentHP(hero.getCurrentHP() + 20);
         } else {
             monsterCombat(spider);
         }
@@ -59,7 +60,7 @@ public class Game {
         } else if (!hero.isAlive()) {
             System.out.println("The " + monster.getName() + " killed you.");
         } else if (!monster.isAlive()) {
-            System.out.println("You killed the " + monster.getName() + "!. You earned " + monster.givenExp() + " EXP.");
+            System.out.println("You killed the " + monster.getName() + "! You earned " + monster.givenExp() + " EXP.");
             hero.gainedExp(monster.givenExp());
         } else {
             System.out.println("Something went wrong.");

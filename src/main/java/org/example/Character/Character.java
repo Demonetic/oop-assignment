@@ -28,11 +28,7 @@ public abstract class Character {
     }
 
     public void setCurrentHP(int hp){
-        if(currentHP + hp > getMaxHP()){ // Makes sure we can't set HP greater than Max HP
-            currentHP = getMaxHP();
-        } else {
-            currentHP = hp;
-        }
+        currentHP = hp;
     }
 
     public boolean isAlive(){
