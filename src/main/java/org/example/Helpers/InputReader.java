@@ -2,39 +2,32 @@ package org.example.Helpers;
 
 import java.util.Scanner;
 
+// Used to make methods for user input with Strings and Int
 public class InputReader {
-    private Scanner userInput;
+    private final Scanner scanner; // Disallows reassignment of scanner
 
     public InputReader(){
-        this.userInput = new Scanner(System.in);
+        this.scanner = new Scanner(System.in);
     }
 
     public int readInt(String prompt){
         System.out.print(prompt + ": ");
-
-        while(!userInput.hasNextInt()){
-            System.out.println("Invalid input. Enter a integer.");
-            userInput.next();
-            System.out.println(prompt + ": ");
+        while(!scanner.hasNextInt()){
+            System.out.println("Invalid input. Enter an integer.");
+            scanner.next(); // Jump to next input if input is not int
+            System.out.print(prompt + ": ");
         }
-        int value = userInput.nextInt();
-        userInput.nextLine();
+        int value = scanner.nextInt(); // Saves int input to variable
+        scanner.nextLine(); // Makes sure the whole input is read
         return value;
     }
 
     public String readString(String prompt){
-        System.out.println(prompt + ": ");
-        return userInput.nextLine();
+        System.out.print(prompt + ": ");
+        return scanner.nextLine();
     }
 
-//    public String readWord(String prompt){
-//        System.out.println(prompt + ": ");
-//        String word = userInput.next();
-//        userInput.nextLine();
-//        return word;
-//    }
-
     public void close(){
-        userInput.close();
+        scanner.close();
     }
 }

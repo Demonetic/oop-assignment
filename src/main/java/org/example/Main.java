@@ -10,5 +10,4 @@ public class Main {
         GameMenu game = new GameMenu();
         game.start();
     }
-
 }

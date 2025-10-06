@@ -3,30 +3,28 @@ package org.example.Game;
 import org.example.Character.Hero;
 import org.example.Helpers.InputReader;
 
+// Used to implement game logic from Game and show menu
 public class GameMenu {
-    private InputReader input;
-    boolean gameIsRunning;
-    Game game = new Game();
-
+    private final InputReader scanner;
+    private final Game game;
+    private boolean gameIsRunning;
 
     public GameMenu() {
-        this.input = new InputReader();
+        this.scanner = new InputReader();
+        this.game = new Game();
         this.gameIsRunning = true;
     }
 
     public void start() {
         System.out.println(">>> Welcome to Sunfield Village <<<");
-        game.addName();
-        Hero hero = game.getHero();
-        while (gameIsRunning && hero.isAlive() && hero.getLevel() < 10) {
+        game.addName(); // Let player choose Hero- and Weapon name
+        Hero hero = game.getHero(); // Creates variable for created Hero
+        while (gameIsRunning && hero.isAlive() && hero.getLevel() < 10) { // Leaves loop if player quits, dies or reaches level 10
             displayMenu();
-            int choice = input.readInt("Enter a menu-option");
+            int choice = scanner.readInt("Enter a menu-option");
             handleChoice(choice);
-            if (choice == 0) {
-                gameIsRunning = false;
-            }
         }
-        input.close();
+        scanner.close();
         if (!gameIsRunning) {
             System.out.println("You have quit your adventure.");
         } else if(!hero.isAlive()){
@@ -37,13 +35,13 @@ public class GameMenu {
     }
 
     private void displayMenu() {
-        System.out.println("\n--- Game Menu ---");
+        System.out.println("\n------- Game Menu -------");
         System.out.println("1. Print Character Status");
         System.out.println("2. Explore the Forest");
         System.out.println("3. Explore the Desert");
         System.out.println("4. Explore the Cave");
         System.out.println("0. Quit Game");
-        System.out.println("-----------------");
+        System.out.println("-------------------------");
     }
 
     private void handleChoice(int choice) {
@@ -68,7 +66,5 @@ public class GameMenu {
             default:
                 System.out.println("Invalid input. Enter a menu choice.");
         }
-
     }
-
 }

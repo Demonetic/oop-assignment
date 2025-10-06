@@ -5,7 +5,7 @@ import org.example.Helpers.Helper;
 public class Weapon {
     private final String name;
     private int attack = 5;
-    Helper helper = new Helper();
+    private final Helper helper = new Helper();
 
     public Weapon(String name) {
         this.name = name;

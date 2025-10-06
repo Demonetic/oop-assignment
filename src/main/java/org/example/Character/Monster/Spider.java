@@ -4,15 +4,16 @@ import org.example.Character.Character;
 import org.example.Helpers.Helper;
 
 public class Spider extends Monster {
+    private final int EXP = 50;
+    private final Helper helper = new Helper();
+
     public Spider(String name) {
         super(name);
     }
 
-    Helper helper = new Helper();
-
     @Override
     public int givenExp() {
-        return 50;
+        return EXP;
     }
 
     @Override
@@ -23,6 +24,5 @@ public class Spider extends Monster {
             character.setCurrentHP(0);
         }
         System.out.println(getName() + " dealt " + damage + " damage to " + character.getName() + "!");
-//        helper.sleepForMilliSeconds(500);
     }
 }

@@ -19,7 +19,7 @@ public abstract class Character {
         return maxHP;
     }
 
-    public void setMaxHP(){
+    public void increaseMaxHP(){
         maxHP += 20;
     }
 
@@ -28,7 +28,11 @@ public abstract class Character {
     }
 
     public void setCurrentHP(int hp){
-        currentHP = hp;
+        if(currentHP + hp > getMaxHP()){ // Makes sure we can't set HP greater than Max HP
+            currentHP = getMaxHP();
+        } else {
+            currentHP = hp;
+        }
     }
 
     public boolean isAlive(){
