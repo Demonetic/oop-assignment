@@ -5,6 +5,7 @@ public abstract class Character {
     private int maxHP;
     private int currentHP;
 
+    // Sets a default amount of hp to all created characters
     public Character(String name) {
         this.name = name;
         this.maxHP = 100;

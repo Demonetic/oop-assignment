@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 // Used to make methods for user input with Strings and Int
 public class InputReader {
-    private final Scanner scanner; // Disallows reassignment of scanner
+    private final Scanner scanner;
 
+    // Opens scanner
     public InputReader(){
         this.scanner = new Scanner(System.in);
     }
@@ -27,6 +28,7 @@ public class InputReader {
         return scanner.nextLine();
     }
 
+    // Closes scanner
     public void close(){
         scanner.close();
     }

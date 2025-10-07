@@ -20,20 +20,21 @@ public class Game {
         return hero;
     }
 
+    // Creates chance to encounter boss fight, safe zone or normal combat
     private void decideEncounter(String safeZone, Spider spider, Boss boss) {
         int percentage = helper.randomPercentage();
         if (percentage <= 10) { // Gives 10% chance of encountering a boss fight
             monsterCombat(boss);
         } else if (percentage <= 30) { // Gives 20% chance of encountering a safe zone
             System.out.println(safeZone);
-            if (hero.getCurrentHP() + 20 > hero.getMaxHP()) {
+            if (hero.getCurrentHP() + 20 > hero.getMaxHP()) { // Makes sure hero can't get more than maxHP
                 hero.setCurrentHP(hero.getMaxHP());
                 System.out.println("You have refilled your HP. You now have " + hero.getCurrentHP() + "HP.");
             } else {
                 hero.setCurrentHP(hero.getCurrentHP() + 20);
                 System.out.println("You have regained 20HP. You now have " + hero.getCurrentHP() + "HP.");
             }
-        } else {
+        } else { // Gives 70% chance of encountering normal combat
             monsterCombat(spider);
         }
         helper.sleepForMilliSeconds(500);
@@ -41,7 +42,7 @@ public class Game {
 
     public void monsterCombat(Monster monster) {
         System.out.println("You have encountered a " + monster.getName());
-        helper.sleepForMilliSeconds(1000);
+        helper.sleepForMilliSeconds(500);
         while (hero.isAlive() && monster.isAlive()) {
             System.out.println("Turn " + turn);
             hero.attack(monster);

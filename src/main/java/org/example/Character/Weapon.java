@@ -19,10 +19,12 @@ public class Weapon {
         return attack;
     }
 
+    // Generates total attack damage with base attack and random attack
     public int getTotalAttack(){
         return attack + helper.randomAttackHero();
     }
 
+    // Method used to upgrade weapon after every level up
     public void weaponUpgrade(){
         attack += 10;
     }

@@ -12,8 +12,8 @@ public class Hero extends Character{
     }
 
     @Override
-    public void attack(Character character) { // Sends in the character the Hero is attacking
-        int damage = weapon.getTotalAttack(); // Saves base damage and random damage
+    public void attack(Character character) {
+        int damage = weapon.getTotalAttack();
         character.setCurrentHP(character.getCurrentHP() - damage);
         if(!character.isAlive()){
             character.setCurrentHP(0);
@@ -25,6 +25,7 @@ public class Hero extends Character{
         return level;
     }
 
+    // Method that adds exp from fights and makes sure you level up after 100 exp
     public void gainedExp(int givenExp){
         exp += givenExp;
         if(exp >= 100){
@@ -34,9 +35,9 @@ public class Hero extends Character{
 
     public void levelUp(){
         level++;
-        exp -= 100; // Resets exp
+        exp -= 100; // Resets exp to make counting easier
         increaseMaxHP();
-        setCurrentHP(getMaxHP()); // Gives Hero full HP
+        setCurrentHP(getMaxHP()); // Gives Hero the new max hp as current hp
         weapon.weaponUpgrade();
         System.out.println("You ranked up to level " + level +
                 " and gained 20 extra HP! Your HP was refilled to " + getCurrentHP() + ".");
@@ -44,7 +45,7 @@ public class Hero extends Character{
                 + weapon.getAttack() + ".");
     }
 
-    // Makes sure exp is 0 when creating Hero
+    // Makes sure exp prints as 0 when creating Hero
     public int getExp(){
         return ((getLevel() -1) * 100) + exp;
     }

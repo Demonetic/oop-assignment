@@ -4,7 +4,7 @@ import org.example.Character.Character;
 import org.example.Helpers.Helper;
 
 public class Spider extends Monster {
-    private final int EXP = 50;
+    private final int EXP_REWARD = 50; // Makes it easier to change when needed
     private final Helper helper = new Helper();
 
     public Spider(String name) {
@@ -13,7 +13,7 @@ public class Spider extends Monster {
 
     @Override
     public int givenExp() {
-        return EXP;
+        return EXP_REWARD;
     }
 
     @Override

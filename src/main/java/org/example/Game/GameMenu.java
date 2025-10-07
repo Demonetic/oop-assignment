@@ -3,7 +3,7 @@ package org.example.Game;
 import org.example.Character.Hero;
 import org.example.Helpers.InputReader;
 
-// Used to implement game logic from Game and show menu
+// Used to implement game logic from Game and shows menu to player
 public class GameMenu {
     private final InputReader scanner;
     private final Game game;
